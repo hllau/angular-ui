@@ -203,7 +203,12 @@ angular.module('ui.directives').directive('uiDate', [
       require: '?ngModel',
       link: function(scope, element, attrs, controller) {
         var opts, updateModel, usersOnSelectHandler;
-        opts = angular.extend({}, options, scope.$eval(attrs.uiDate));
+        opts = angular.extend({
+          yearRange: '1988:+3',
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: 'd MM, yy'
+        }, options, scope.$eval(attrs.uiDate));
         /* If we have a controller (i.e. ngModelController) then wire it up
         */
 
